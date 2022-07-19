@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React , {useState} from "react"
+import styled from "styled-components"
+import Card from "./components/Card"
+import Container from "./Styles/Container"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const Button = styled.button`
+`
+
+
+
+const App = () => {
+
+  const [number, setNumber] = useState(1)
+
+  function delCandidate(){
+    if(number>1){
+      let copy = number
+      setNumber(copy-1)
+    }
+  }
+  
+  function addCandidate(){
+    let copy = number
+    setNumber(copy+1)
+  }
+
+  return(
+    <>
+      <Container layout ="bar">
+        <Button onClick={addCandidate}>add</Button>
+        <Button onClick={delCandidate}>remove</Button>
+      </Container>
+      <Container layout = "grid">
+        <Card number={number}/>
+      </Container>
+    </>
+  )
 }
 
-export default App;
+export default App
