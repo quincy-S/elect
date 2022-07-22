@@ -1,12 +1,11 @@
 import React , {useState} from "react"
 import styled from "styled-components"
 import Card from "./components/Card"
-import Container from "./Styles/Container"
+import Section from "./Styles/Section"
 
 
 const Button = styled.button`
 `
-
 
 
 const App = () => {
@@ -27,13 +26,13 @@ const App = () => {
 
   return(
     <>
-      <Container layout ="bar">
+      <Section layout ="bar">
         <Button onClick={addCandidate}>add</Button>
         <Button onClick={delCandidate}>remove</Button>
-      </Container>
-      <Container layout = "grid">
+      </Section>
+      <Section layout = "grid">
         <Card number={number}/>
-      </Container>
+      </Section>
     </>
   )
 }
